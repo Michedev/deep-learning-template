@@ -19,4 +19,5 @@ This is a template for deep learning projects based on _Pytorch, Pytorch Lightni
     │   ├── paths.py  # Paths definition
     │   └── train.py  # Training script
     ├── pyproject.toml  # Project configuration
+    ├── saved_models  # where models are saved
     └── readme.md  # This file

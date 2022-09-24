@@ -9,6 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 import pytorch_lightning as pl
 import omegaconf
 import os
+from deep_learning_template.paths import CODE_MODEL
 
 
 @hydra.main(pkg_resources.resource_filename("deep_learning_template", 'config'), 'train.yaml')
@@ -26,8 +27,7 @@ def train(config: DictConfig):
     train_dataset: Dataset = hydra.utils.instantiate(config.dataset.train)
     val_dataset: Dataset = hydra.utils.instantiate(config.dataset.val)
 
-    if ckpt is not None:
-        model.load_from_checkpoint()
+    CODE_MODEL.copy('model')  # copy source code of model under experiment directory
 
     model.save_hyperparameters(OmegaConf.to_object(config)['model'])  # save model hyperparameters in tb
 
