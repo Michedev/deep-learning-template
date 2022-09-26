@@ -20,7 +20,7 @@ This is a template for deep learning projects based on _Pytorch, Pytorch Lightni
     │   │   └── train.yaml  # training configuration
     │   ├── dataset  # Dataset definition
     │   ├── model  # Model definition
-    │   └── utils
+    │   ├── utils
     │   │   ├── experiment_tools.py # Iterate over experiments
     │   │   └── paths.py  # common paths
     │   ├── train.py  # Entrypoint point for training
