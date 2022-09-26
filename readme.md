@@ -28,3 +28,7 @@ This is a template for deep learning projects based on _Pytorch, Pytorch Lightni
     ├── pyproject.toml  # Project configuration
     ├── saved_models  # where models are saved
     └── readme.md  # This file
+
+### Design keypoints
+- Code root folder (_deep_learning_template/_) should preferably contains entrypoints
+- Add tasks to pyproject.toml via poe the poet [link](https://github.com/nat-n/poethepoet)
