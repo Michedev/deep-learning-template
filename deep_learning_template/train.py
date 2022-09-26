@@ -1,4 +1,3 @@
-import torch
 import hydra
 import pkg_resources
 from omegaconf import DictConfig, OmegaConf
@@ -9,7 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 import pytorch_lightning as pl
 import omegaconf
 import os
-from deep_learning_template.paths import CODE_MODEL
+from deep_learning_template.utils.paths import CODE_MODEL
 
 
 @hydra.main(pkg_resources.resource_filename("deep_learning_template", 'config'), 'train.yaml')
