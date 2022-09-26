@@ -1,6 +1,6 @@
 # Deep Learning Template
 
-This is a template for deep learning projects based on _Pytorch, Pytorch Lightning and Hydra_.
+This is a template for deep learning projects based on _Pytorch, Pytorch Lightning, Poetry and Hydra_.
 
 ## How to initialize a new project
 
