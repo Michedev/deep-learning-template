@@ -30,5 +30,5 @@ This is a template for deep learning projects based on _Pytorch, Pytorch Lightni
     └── readme.md  # This file
 
 ### Design keypoints
-- Code root folder (_deep_learning_template/_) should preferably contains entrypoints
-- Add tasks to pyproject.toml via poe the poet [link](https://github.com/nat-n/poethepoet)
+- Code root folder (_deep_learning_template/_) should preferably contains only entrypoint
+- Add tasks to pyproject.toml via poe the poet [link](https://github.com/nat-n/poethepoet) like '_clean-empty-runs_'
