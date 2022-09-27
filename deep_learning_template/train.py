@@ -26,7 +26,7 @@ def train(config: DictConfig):
     train_dataset: Dataset = hydra.utils.instantiate(config.dataset.train)
     val_dataset: Dataset = hydra.utils.instantiate(config.dataset.val)
 
-    CODE_MODEL.copy('model')  # copy source code of model under experiment directory
+    CODE_MODEL.copytree('model')  # copy source code of model under experiment directory
 
     model.save_hyperparameters(OmegaConf.to_object(config)['model'])  # save model hyperparameters in tb
 
