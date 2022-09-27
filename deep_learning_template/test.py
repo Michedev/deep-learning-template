@@ -22,7 +22,7 @@ def test(config: DictConfig):
 
     ckpt_config = OmegaConf.load(ckpt_folder / 'config.yaml')
 
-    trainer = Trainer(resume_from_checkpoint=ckpt_folder / 'best.ckpt')
+    trainer = pl.Trainer(resume_from_checkpoint=ckpt_folder / 'best.ckpt')
 
     model: pl.LightningModule = hydra.utils.instantiate(ckpt_config.model)
 
