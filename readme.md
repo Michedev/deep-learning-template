@@ -21,7 +21,7 @@ poetry install
 To train the model, run the following command:
 
 ```bash
-poetry run python train.py
+poetry run python deep_learning_template/train.py
 ```
 
 or alternatively, to train single GPU:
