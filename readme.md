@@ -8,6 +8,29 @@ This is a template for deep learning projects based on _Pytorch, Pytorch Lightni
 2. Rename deep_learning_template to your project name in _pyproject.toml_ and folder name
 3. Create your model and, optionally, your dataset in _{src}/model_ and _{src}/dataset_ respectively
 
+## Install
+
+To install the dependencies in a isolated virtualenv, run:
+
+```bash
+poetry install
+```
+
+## Train
+
+To train the model, run the following command:
+
+```bash
+poetry run python train.py
+```
+
+or alternatively, to train single GPU:
+
+
+```bash
+poe train-gpu
+ ```
+
 ## Project structure
 
     ├── data  # Data folder
