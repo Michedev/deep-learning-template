@@ -1,11 +1,11 @@
 # Deep Learning Template
 
-This is a template for deep learning projects based on _Pytorch, Pytorch Lightning, Poetry and Hydra_.
+This is a template for deep learning projects based on _Pytorch, Pytorch Lightning, Anaconda-project and Hydra_.
 
 ## How to initialize a new project
 
 1. Clone this repository
-2. Rename deep_learning_template to your project name in _pyproject.toml_ and folder name
+2. Rename deep_learning_template to your project name in _anaconda-project.yml_ and folder name
 3. Create your model and, optionally, your dataset in _{src}/model_ and _{src}/dataset_ respectively
 
 
