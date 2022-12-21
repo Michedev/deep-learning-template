@@ -8,10 +8,10 @@ from torch.utils.data import Dataset, DataLoader
 import pytorch_lightning as pl
 import omegaconf
 import os
-from deep_learning_template.utils.paths import CODE_MODEL
+from utils.paths import CODE_MODEL
 
 
-@hydra.main(pkg_resources.resource_filename("deep_learning_template", 'config'), 'train.yaml')
+@hydra.main('config', 'train.yaml')
 def train(config: DictConfig):
     ckpt = None
     pl.seed_everything(config.seed)

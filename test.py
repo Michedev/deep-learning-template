@@ -9,10 +9,9 @@ import pytorch_lightning as pl
 import omegaconf
 import os
 import yaml
-from deep_learning_template.utils.paths import CODE_MODEL
 
 
-@hydra.main(pkg_resources.resource_filename("deep_learning_template", 'config'), 'test.yaml')
+@hydra.main('config', 'test.yaml')
 def test(config: DictConfig):
     ckpt_folder = Path(config.checkpoint_path)
     assert ckpt_folder.exists() and ckpt_folder.isdir(), f"Checkpoint {ckpt_folder} does not exist or is not a directory"

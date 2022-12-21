@@ -37,7 +37,7 @@ Train your model
 anaconda-project run train
 ```
 
-You can also specify additional arguments according to `deep_learning_template/config/train.yaml` like
+You can also specify additional arguments according to `config/train.yaml` like
 
 ```bash
 anaconda-project run train accelerator=cpu  # train on cpu
@@ -66,7 +66,7 @@ anaconda-project run train accelerator=cpu  # train on cpu
     └── readme.md  # This file
 
 ### Design keypoints
-- Code root folder (_deep_learning_template/_) should contain only entrypoint
+- Root folder should contain only entrypoint
 - Add tasks to anaconda-project.yml via the command `anaconda-project add-command`
 
 
