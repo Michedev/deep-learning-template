@@ -46,21 +46,20 @@ anaconda-project run train accelerator=cpu  # train on cpu
 
 ## Project structure
 
-    ├── data  # Data folder
-    ├── deep_learning_template  # source code
-    │   ├── config
-    │   │   ├── dataset  # Dataset config
-    │   │   ├── model  # Model config
-    │   │   ├── model_dataset  # model and dataset specific config
-    │   │   ├── test.yaml   # testing configuration
-    │   │   └── train.yaml  # training configuration
-    │   ├── dataset  # Dataset definition
-    │   ├── model  # Model definition
-    │   ├── utils
-    │   │   ├── experiment_tools.py # Iterate over experiments
-    │   │   └── paths.py  # common paths
-    │   ├── train.py  # Entrypoint point for training
-    │   └── test.py  # Entrypoint point for testing
+    ├── data  # Data storage folder
+    ├── config
+    │   ├── dataset  # Dataset config
+    │   ├── model  # Model config
+    │   ├── model_dataset  # (model, dataset) specific config
+    │   ├── test.yaml   # test configuration
+    │   └── train.yaml  # train configuration
+    ├── dataset  # Dataset definition
+    ├── model  # Model definition
+    ├── utils
+    │   ├── experiment_tools.py # Iterate over experiments
+    │   └── paths.py  # common paths
+    ├── train.py  # Entrypoint point for training
+    ├── test.py  # Entrypoint point for testing
     ├── anaconda-project.yml  # Project configuration
     ├── saved_models  # where models are saved
     └── readme.md  # This file
