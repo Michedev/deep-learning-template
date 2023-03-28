@@ -16,4 +16,4 @@ seed: 1337  # random seed
 
 hydra:
   run:
-    dir: saved_models/${now:%Y_%m_%d_%H_%M_%S}  # where run train.py it will create under {current working directory}/saved_models a folder with the current date and time and it will be setted as new cwd
+    dir: saved_models/${now:%Y_%m_%d_%H_%M_%S}  # when run train.py it will create under {current working directory}/saved_models a folder with the current date and time and it will be setted as new cwd
