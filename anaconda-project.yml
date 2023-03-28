@@ -67,14 +67,13 @@ downloads:
 packages:
 - pytorch
 - torchvision
-- cudatoolkit=11.3
 - pip:
   - pytorch-lightning
   - path
   - hydra-core
   - h5py
   - tensorguard
-- python=3.9
+- python=3.10
 - pillow
 - matplotlib
 channels:
@@ -98,7 +97,16 @@ variables:
 env_specs:
   default:
     description: Default environment spec for running commands
-    packages: []
-    channels: []
+    packages: 
+    - pytorch-cuda=11.7
+    channels: 
+    - nvidia
+    platforms: []
+  cpu:
+    description: Environment spec for running commands on CPU
+    packages:
+    - cpuonly
+    channels:
+    - pytorch
     platforms: []
 
