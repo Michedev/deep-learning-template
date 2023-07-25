@@ -1,0 +1,33 @@
+name: deep_learning_project
+environments:
+  default:
+    - environment.yml
+  # de-comment this to have a cpu environment
+  # and comment environment.yml
+  #   - env.pytorch-cpu.yml
+variables:
+  PYTHONPATH: ./
+  HYDRA_FULL_ERROR: '1'
+commands:
+  train-gpu:
+    unix: python factor_vae/train.py accelerator=gpu devices=1
+    env_spec: default
+  train-cpu:
+    unix: python factor_vae/train.py accelerator=cpu
+    env_spec: default
+  compress-runs:
+    unix: compress-runs = "tar cfz saved_models.tar.gz saved_models/"
+    env_spec: default
+  tensorboard:
+    unix: tensorboard --logdir=saved_models/
+    env_spec: default
+  clean-empty-runs:
+    unix: |
+      python -c '
+      from path import Path
+      for run in Path("saved_models").dirs():
+          if not run.joinpath("best.ckpt").exists():
+              print(f"Removing {run}")
+              run.rmtree()'
+    env_spec: default
+
