@@ -4,30 +4,31 @@ environments:
     - environment.yml
   # de-comment this to have a cpu environment
   # and comment environment.yml
-  #   - env.pytorch-cpu.yml
+  #   - environment-cpu.yml
 variables:
   PYTHONPATH: ./
   HYDRA_FULL_ERROR: '1'
 commands:
   train-gpu:
-    unix: python train.py accelerator=gpu devices=1
-    env_spec: default
+    cmd: python factor_vae/train.py accelerator=gpu devices=1
+    environment: default
+    variables:
   train-cpu:
-    unix: python train.py accelerator=cpu
-    env_spec: default
+    cmd: python factor_vae/train.py accelerator=cpu
+    environment: default
+    variables:
   compress-runs:
-    unix: compress-runs = "tar cfz saved_models.tar.gz saved_models/"
-    env_spec: default
+    cmd: compress-runs = "tar cfz saved_models.tar.gz saved_models/"
+    environment: default
+    variables:
   tensorboard:
-    unix: tensorboard --logdir=saved_models/
-    env_spec: default
+    cmd: tensorboard --logdir=saved_models/
+    environment: default
+    variables:
   clean-empty-runs:
-    unix: |
-      python -c '
-      from path import Path
-      for run in Path("saved_models").dirs():
-          if not run.joinpath("best.ckpt").exists():
-              print(f"Removing {run}")
-              run.rmtree()'
-    env_spec: default
+    cmd: "python -c '\nfrom path import Path\nfor run in Path(\"saved_models\").dirs():\n\
+      \    if not run.joinpath(\"best.ckpt\").exists():\n        print(f\"Removing\
+      \ {run}\")\n        run.rmtree()'\n"
+    environment: default
+    variables:
 
