@@ -1,6 +1,6 @@
 # Deep Learning Template
 
-This is a template for deep learning projects based on _Pytorch, Pytorch Lightning, conda-project and Hydra_.
+This is a template for deep learning projects based on _Pytorch, Pytorch Lightning and Hydra_.
 
 ## How to initialize a new project
 
@@ -17,16 +17,21 @@ This is a template for deep learning projects based on _Pytorch, Pytorch Lightni
 git clone https://github.com/Michedev/deep-learning-template.git
 ```
 
-2. Install [anaconda](https://www.anaconda.com/) if you don't have it
+1. Install hatch `pip install hatch` if you don't have it
 
 
-3. Open your terminal with the anaconda environment enabled in the project folder
+2. Open your terminal in the project folder
 
-4. Install dependencies
+3. Install dependencies
 
 
 ```bash
-conda-project prepare
+hatch env create
+```
+This install the default environment which uses torch with gpu support. If you want to use cpu instead, run
+
+```bash
+hatch env create cpu
 ```
 
 ## Train
@@ -34,15 +39,20 @@ conda-project prepare
 Train your model
 
 ```bash
-conda-project run train
+hatch run train
 ```
+
 
 You can also specify additional arguments according to `config/train.yaml` like
 
 ```bash
-conda-project run train accelerator=cpu  # train on cpu
+hatch run train batch_size=64
 ```
+To run commands from a different environment, add the environment name before the command, e.g.
 
+```bash
+hatch run cpu:train
+```
 
 ## Project structure
 
@@ -60,37 +70,11 @@ conda-project run train accelerator=cpu  # train on cpu
     │   └── paths.py  # common paths
     ├── train.py  # Entrypoint point for training
     ├── test.py  # Entrypoint point for testing
-    ├── conda-project.yml  # Project configuration
+    ├── pyproject.toml # Project configuration
     ├── saved_models  # where models are saved
     └── readme.md  # This file
 
 ### Design keypoints
 - Root folder should contain only entrypoint
-- Add tasks to conda-project.yml via the command `conda-project add-command`
-
-
-### conda-project FAQ
-
-#### How to add a new command?
-Example:
-```bash
-conda-project add-command generate "python ddpm_pytorch/generate.py
-```
-#### Mac OS support in lock file
-
-_[Short]_ Run these commands:
-
-```bash
-conda-project remove-packages cudatoolkit;
-conda-project add-platforms osx-64;
-```
-
-_[Long]_
-1. Remove cudatoolkit dependency from _conda-project.yml_
-```bash
-conda-project remove-packages cudatoolkit
-```
-2. Add Mac OS platform to _conda-project-lock.yml_:
-```bash
-conda-project add-platforms osx-64
-``` 
+- All hyperparameters should be under config/
+- All paths should be stored in utils/paths.py
